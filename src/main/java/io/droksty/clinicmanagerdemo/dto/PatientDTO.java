@@ -10,15 +10,6 @@ public class PatientDTO {
 
     public PatientDTO() {}
 
-    public PatientDTO(long id, String citizenId, String lastname, String firstname, String email, String phoneNumber) {
-        this.id = id;
-        this.citizenId = citizenId;
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
-
     public long getId() {
         return id;
     }
