@@ -52,12 +52,14 @@
     </dependencies>
 
     <build>
+        <!-- custom project structure, to better organize individual views -->
         <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>${project.basedir}/src/main/java</directory>
             </resource>
         </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
