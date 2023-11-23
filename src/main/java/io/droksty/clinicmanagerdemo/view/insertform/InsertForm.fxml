@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fillWidth="false" spacing="10.0" stylesheets="@insert-form.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.droksty.clinicmanagerdemo.view.InsertFormController">
+<VBox fillWidth="false" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.droksty.clinicmanagerdemo.view.insertform.InsertFormController">
    <VBox fillWidth="false" prefWidth="400.0">
       <Label text="Citizen ID" />
       <TextField fx:id="citizenIdField" />

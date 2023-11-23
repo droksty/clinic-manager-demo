@@ -1,4 +1,4 @@
-package io.droksty.clinicmanagerdemo.view;
+package io.droksty.clinicmanagerdemo.view.insertform;
 
 
 import io.droksty.clinicmanagerdemo.controller.Controller;
