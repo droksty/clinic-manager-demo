@@ -29,8 +29,8 @@
       <TextField fx:id="phoneField" />
    </VBox>
    <HBox>
-      <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onFormSubmit" text="Submit" />
-      <Button fx:id="backButton" mnemonicParsing="false" text="Back" />
+      <Button mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+      <Button mnemonicParsing="false" text="Back" />
    </HBox>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

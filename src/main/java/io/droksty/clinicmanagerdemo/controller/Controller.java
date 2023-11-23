@@ -11,11 +11,25 @@ public class Controller {
     private final IPatientDAO dao = new PatientDAOImpl();
     private final IPatientService service = new PatientServiceImpl(dao);
 
-    public void doInsert(PatientDTO dto) {
+
+    public void doInsert(String citizenId, String lastname, String firstname, String email, String phoneNum) {
+        PatientDTO dto = createFromUserInput(citizenId, lastname, firstname, email, phoneNum);
         try {
             service.insertPatient(dto);
         } catch (PatientDAOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    // Helper
+    private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
+        PatientDTO dto = new PatientDTO();
+        dto.setCitizenId(citizenId);
+        dto.setLastname(lastname);
+        dto.setFirstname(firstname);
+        dto.setEmail(email);
+        dto.setPhoneNumber(phoneNum);
+        return dto;
     }
 }
