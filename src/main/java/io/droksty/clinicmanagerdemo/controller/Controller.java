@@ -4,8 +4,12 @@ import io.droksty.clinicmanagerdemo.dao.IPatientDAO;
 import io.droksty.clinicmanagerdemo.dao.PatientDAOImpl;
 import io.droksty.clinicmanagerdemo.dao.exceptions.PatientDAOException;
 import io.droksty.clinicmanagerdemo.dto.PatientDTO;
+import io.droksty.clinicmanagerdemo.model.Patient;
 import io.droksty.clinicmanagerdemo.service.IPatientService;
 import io.droksty.clinicmanagerdemo.service.PatientServiceImpl;
+import javafx.scene.control.TableView;
+
+import java.util.List;
 
 public class Controller {
     private final IPatientDAO dao = new PatientDAOImpl();
@@ -21,6 +25,27 @@ public class Controller {
         }
     }
 
+    public void doSearchAll(TableView<Object> tableView, String lastname) {
+        List<Patient> patientList;
+        try {
+            patientList = service.getPatientsByLastname(lastname);
+        } catch (PatientDAOException e) {
+            throw new RuntimeException(e);
+        }
+        tableView.getColumns().setAll(TableUtil.fetchColumns());
+        tableView.getItems().setAll(patientList);
+    }
+
+    public void doSearchOne(TableView<Object> tableView, String citizenId) {
+        Patient patient;
+        try {
+            patient = service.getPatientByCitizenID(citizenId);
+        } catch (PatientDAOException e) {
+            throw new RuntimeException(e);
+        }
+        tableView.getColumns().setAll(TableUtil.fetchColumns());
+        tableView.getItems().setAll(patient);
+    }
 
     // Helper
     private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
