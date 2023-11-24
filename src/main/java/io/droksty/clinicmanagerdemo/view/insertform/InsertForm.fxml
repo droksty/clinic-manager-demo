@@ -7,24 +7,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fillWidth="false" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.droksty.clinicmanagerdemo.view.insertform.InsertFormController">
-   <VBox fillWidth="false" prefWidth="400.0">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="540.0" prefWidth="800.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.droksty.clinicmanagerdemo.view.insertform.InsertFormController">
+   <VBox fillWidth="false">
       <Label text="Citizen ID" />
       <TextField fx:id="citizenIdField" />
    </VBox>
-   <VBox fillWidth="false" prefWidth="400.0">
+   <VBox fillWidth="false">
       <Label text="Last Name" />
       <TextField fx:id="lastnameField" />
    </VBox>
-   <VBox fillWidth="false" prefWidth="400.0">
+   <VBox fillWidth="false">
       <Label text="First Name" />
       <TextField fx:id="firstnameField" />
    </VBox>
-   <VBox fillWidth="false" prefWidth="400.0">
+   <VBox fillWidth="false">
       <Label text="e-mail" />
       <TextField fx:id="emailField" />
    </VBox>
-   <VBox fillWidth="false" prefWidth="400.0">
+   <VBox fillWidth="false">
       <Label text="Phone" />
       <TextField fx:id="phoneField" />
    </VBox>
