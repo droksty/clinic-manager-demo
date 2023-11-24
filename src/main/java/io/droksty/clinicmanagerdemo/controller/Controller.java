@@ -43,8 +43,13 @@ public class Controller {
         } catch (PatientDAOException e) {
             throw new RuntimeException(e);
         }
-        tableView.getColumns().setAll(TableUtil.fetchColumns());
-        tableView.getItems().setAll(patient);
+
+        if (patient != null) {
+            tableView.getColumns().setAll(TableUtil.fetchColumns());
+            tableView.getItems().setAll(patient);
+        } else {
+            tableView.getColumns().clear();
+        }
     }
 
     // Helper
