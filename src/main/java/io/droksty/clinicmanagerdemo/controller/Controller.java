@@ -7,14 +7,36 @@ import io.droksty.clinicmanagerdemo.dto.PatientDTO;
 import io.droksty.clinicmanagerdemo.model.Patient;
 import io.droksty.clinicmanagerdemo.service.IPatientService;
 import io.droksty.clinicmanagerdemo.service.PatientServiceImpl;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Controller {
     private final IPatientDAO dao = new PatientDAOImpl();
     private final IPatientService service = new PatientServiceImpl(dao);
 
+
+    /**
+     *     Section - View related API
+     */
+
+    public void setCenterView(BorderPane borderPane, String view) throws IOException {
+        if (view.equals("InsertForm")) {
+            borderPane.setCenter(new FXMLLoader(getClass()
+                    .getResource("/io/droksty/clinicmanagerdemo/view/insertform/InsertForm.fxml")).load());
+        } else {
+            borderPane.setCenter(new FXMLLoader(getClass()
+                    .getResource("/io/droksty/clinicmanagerdemo/view/patientlist/PatientList.fxml")).load());
+        }
+    }
+
+
+    /**
+     *     Section - Domain related API
+     */
 
     public void doInsert(String citizenId, String lastname, String firstname, String email, String phoneNum) {
         PatientDTO dto = createFromUserInput(citizenId, lastname, firstname, email, phoneNum);
@@ -52,7 +74,11 @@ public class Controller {
         }
     }
 
-    // Helper
+
+    /**
+     *     Section - Helped methods
+     */
+
     private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
         PatientDTO dto = new PatientDTO();
         dto.setCitizenId(citizenId);
