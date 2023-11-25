@@ -37,8 +37,9 @@ public class PatientListController {
     private void onUpdateButtonClick(ActionEvent actionEvent) {
         System.out.println("Not implemented yet");
     }
+
     @FXML
-    private void onDeleteButtonClick(ActionEvent actionEvent) {
-        System.out.println("Not implemented yet");
+    private void onDeleteButtonClick() {
+        controller.doDelete(tableView);
     }
 }

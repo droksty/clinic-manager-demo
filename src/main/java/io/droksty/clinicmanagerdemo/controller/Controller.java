@@ -7,6 +7,7 @@ import io.droksty.clinicmanagerdemo.dto.PatientDTO;
 import io.droksty.clinicmanagerdemo.model.Patient;
 import io.droksty.clinicmanagerdemo.service.IPatientService;
 import io.droksty.clinicmanagerdemo.service.PatientServiceImpl;
+import io.droksty.clinicmanagerdemo.service.exceptions.PatientNotFoundException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
@@ -74,6 +75,14 @@ public class Controller {
         }
     }
 
+    public void doDelete(TableView<?> tableView) {
+        try {
+            service.deletePatient(getIdFromObject(tableView));
+            tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
+        } catch (PatientDAOException | PatientNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      *     Section - Helped methods
@@ -87,5 +96,10 @@ public class Controller {
         dto.setEmail(email);
         dto.setPhoneNumber(phoneNum);
         return dto;
+    }
+
+    private long getIdFromObject(TableView<?> tableView) {
+        Patient patient = (Patient) tableView.getSelectionModel().getSelectedItem();
+        return patient.getId();
     }
 }
