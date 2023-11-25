@@ -7,11 +7,16 @@ module io.droksty.clinicmanagerdemo {
 
 //    opens io.droksty.clinicmanagerdemo to javafx.fxml;
 //    opens io.droksty.clinicmanagerdemo.view to javafx.fxml;
-//    opens io.droksty.clinicmanagerdemo.model to javafx.base;
+    opens io.droksty.clinicmanagerdemo.model to javafx.base;
 //    opens io.droksty.clinicmanagerdemo.controller to javafx.fxml;
 
     exports io.droksty.clinicmanagerdemo;
     exports io.droksty.clinicmanagerdemo.view.insertform to javafx.fxml;
-
     opens io.droksty.clinicmanagerdemo.view.insertform to javafx.fxml;
+
+    exports io.droksty.clinicmanagerdemo.view.patientlist to javafx.fxml;
+    opens io.droksty.clinicmanagerdemo.view.patientlist to javafx.fxml;
+
+//    exports io.droksty.clinicmanagerdemo.view.root to javafx.fxml;
+//    opens io.droksty.clinicmanagerdemo.view.root to javafx.fxml;
 }
