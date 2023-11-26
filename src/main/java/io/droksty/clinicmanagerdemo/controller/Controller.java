@@ -7,6 +7,7 @@ import io.droksty.clinicmanagerdemo.dto.PatientDTO;
 import io.droksty.clinicmanagerdemo.model.Patient;
 import io.droksty.clinicmanagerdemo.service.IPatientService;
 import io.droksty.clinicmanagerdemo.service.PatientServiceImpl;
+import io.droksty.clinicmanagerdemo.service.exceptions.PatientNotFoundException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
@@ -74,9 +75,28 @@ public class Controller {
         }
     }
 
+    public void doDelete(TableView<?> tableView) {
+        try {
+            service.deletePatient(getIdFromObject(tableView));
+            tableView.getItems().remove(tableView.getSelectionModel().getSelectedItem());
+        } catch (PatientDAOException | PatientNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void doUpdate(Object o)
+    {
+        if (o == null) return;
+        PatientDTO dto = fromObject(o);
+        try {
+            service.updatePatient(dto);
+        } catch (PatientDAOException | PatientNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
-     *     Section - Helped methods
+     *     Section - Helper methods
      */
 
     private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
@@ -87,5 +107,15 @@ public class Controller {
         dto.setEmail(email);
         dto.setPhoneNumber(phoneNum);
         return dto;
+    }
+
+    private long getIdFromObject(TableView<?> tableView) {
+        Patient patient = (Patient) tableView.getSelectionModel().getSelectedItem();
+        return patient.getId();
+    }
+
+    private PatientDTO fromObject(Object obj) {
+        Patient p = (Patient) obj;
+        return new PatientDTO(p.getId(), p.getCitizenId(), p.getLastname(), p.getFirstname(), p.getEmail(), p.getPhoneNumber());
     }
 }

@@ -1,7 +1,6 @@
 package io.droksty.clinicmanagerdemo.view.patientlist;
 
 import io.droksty.clinicmanagerdemo.controller.Controller;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -19,6 +18,7 @@ public class PatientListController {
     @FXML
     private void initialize() {
         tableView.setPlaceholder(new Label(""));
+        tableView.setEditable(true);
     }
 
 
@@ -34,11 +34,12 @@ public class PatientListController {
     }
 
     @FXML
-    private void onUpdateButtonClick(ActionEvent actionEvent) {
-        System.out.println("Not implemented yet");
+    private void onUpdateButtonClick() {
+        controller.doUpdate(tableView.getSelectionModel().getSelectedItem());
     }
+
     @FXML
-    private void onDeleteButtonClick(ActionEvent actionEvent) {
-        System.out.println("Not implemented yet");
+    private void onDeleteButtonClick() {
+        controller.doDelete(tableView);
     }
 }
