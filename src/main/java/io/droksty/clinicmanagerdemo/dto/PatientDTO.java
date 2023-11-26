@@ -10,6 +10,15 @@ public class PatientDTO {
 
     public PatientDTO() {}
 
+    public PatientDTO(long id, String citizenId, String lastname, String firstname, String email, String phone) {
+        this.id = id;
+        this.citizenId = citizenId;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.email = email;
+        this.phoneNumber = phone;
+    }
+
     public long getId() {
         return id;
     }
@@ -45,5 +54,18 @@ public class PatientDTO {
     }
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+
+    @Override
+    public String toString() {
+        return "PatientDTO{" +
+                "id=" + id +
+                ", citizenId='" + citizenId + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
