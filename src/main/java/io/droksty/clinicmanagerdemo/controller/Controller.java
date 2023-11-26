@@ -84,8 +84,19 @@ public class Controller {
         }
     }
 
+    public void doUpdate(Object o)
+    {
+        if (o == null) return;
+        PatientDTO dto = fromObject(o);
+        try {
+            service.updatePatient(dto);
+        } catch (PatientDAOException | PatientNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
-     *     Section - Helped methods
+     *     Section - Helper methods
      */
 
     private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
@@ -101,5 +112,10 @@ public class Controller {
     private long getIdFromObject(TableView<?> tableView) {
         Patient patient = (Patient) tableView.getSelectionModel().getSelectedItem();
         return patient.getId();
+    }
+
+    private PatientDTO fromObject(Object obj) {
+        Patient p = (Patient) obj;
+        return new PatientDTO(p.getId(), p.getCitizenId(), p.getLastname(), p.getFirstname(), p.getEmail(), p.getPhoneNumber());
     }
 }
