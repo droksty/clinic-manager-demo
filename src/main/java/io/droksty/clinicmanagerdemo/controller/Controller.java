@@ -20,9 +20,9 @@ public class Controller {
     private final IPatientService service = new PatientServiceImpl(dao);
 
 
-    /**
-     *     Section - View related API
-     */
+    /*                                                              */
+    /*                  Section - View related API                  */
+    /*                                                              */
 
     public void setCenterView(BorderPane borderPane, String view) throws IOException {
         if (view.equals("InsertForm")) {
@@ -35,9 +35,9 @@ public class Controller {
     }
 
 
-    /**
-     *     Section - Domain related API
-     */
+    /*                                                              */
+    /*                  Section - Domain related API                */
+    /*                                                              */
 
     public void doInsert(String citizenId, String lastname, String firstname, String email, String phoneNum) {
         PatientDTO dto = createFromUserInput(citizenId, lastname, firstname, email, phoneNum);
@@ -95,9 +95,10 @@ public class Controller {
         }
     }
 
-    /**
-     *     Section - Helper methods
-     */
+
+    /*                                                              */
+    /*                  Section - Helper Methods                    */
+    /*                                                              */
 
     private PatientDTO createFromUserInput(String citizenId, String lastname, String firstname, String email, String phoneNum) {
         PatientDTO dto = new PatientDTO();
