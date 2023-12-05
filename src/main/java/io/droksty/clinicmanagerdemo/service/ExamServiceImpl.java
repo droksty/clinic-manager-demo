@@ -95,7 +95,7 @@ public class ExamServiceImpl implements IExamService {
                 examDTO.getId(),
                 examDTO.getPatientId(),
                 examDTO.getDate(),
-                examDTO.getExam()
+                examDTO.getResult()
         );
     }
 }

@@ -6,15 +6,15 @@ public class ExamDTO {
     private long id;
     private long patientId;
     private LocalDate date;
-    private String exam;
+    private String result;
 
     public ExamDTO() {}
 
-    public ExamDTO(long id, long patientId, LocalDate date, String exam) {
+    public ExamDTO(long id, long patientId, LocalDate date, String result) {
         this.id = id;
         this.patientId = patientId;
         this.date = date;
-        this.exam = exam;
+        this.result = result;
     }
 
     public long getId() {
@@ -35,11 +35,11 @@ public class ExamDTO {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    public String getExam() {
-        return exam;
+    public String getResult() {
+        return result;
     }
-    public void setExam(String exam) {
-        this.exam = exam;
+    public void setResult(String result) {
+        this.result = result;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ExamDTO {
                 "id=" + id +
                 ", patientId=" + patientId +
                 ", date=" + date +
-                ", exam='" + exam + '\'' +
+                ", result='" + result + '\'' +
                 '}';
     }
 }

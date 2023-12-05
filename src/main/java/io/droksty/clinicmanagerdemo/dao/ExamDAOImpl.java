@@ -17,7 +17,7 @@ public class ExamDAOImpl implements IExamDAO {
              PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             statement.setLong(1, exam.getPatientId());
             statement.setString(2, exam.getDate().toString());
-            statement.setString(3, exam.getExam());
+            statement.setString(3, exam.getResult());
             statement.executeUpdate();
             ResultSet keys = statement.getGeneratedKeys();
             if (keys.next()) {
@@ -37,7 +37,7 @@ public class ExamDAOImpl implements IExamDAO {
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setLong(1, exam.getPatientId());
             statement.setString(2, exam.getDate().toString());
-            statement.setString(3, exam.getExam());
+            statement.setString(3, exam.getResult());
             statement.setLong(4, exam.getId());
             statement.executeUpdate();
             return exam;
